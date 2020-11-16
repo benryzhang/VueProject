@@ -1,0 +1,51 @@
+﻿
+{"code":200,"msg":"成功","data":
+    [{"id":1,"parentId":0,"menuName":"工程概况","url":"","icon":"el-icon-menu","orderNum":1,"open":0,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":253,"parentId":1,"menuName":"系统首页","url":"/welcome","icon":"el-icon-arrow-right","orderNum":1,"open":0,"disabled":false,"perms":"welcome:view","type":0,"children":[]},
+                    {"id":321,"parentId":1,"menuName":"版权信息","url":"/attachments","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"attachments:delete","type":0,"children":[]},
+                    {"id":226,"parentId":1,"menuName":"工程概况","url":"/users","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"users","type":0,"children":[]}
+    ]},
+    {"id":2,"parentId":0,"menuName":"监测设备","url":null,"icon":"el-icon-box","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"传感器信息","url":"/jcxt","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"信号调理设备","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"数据采集设备","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]},
+                    {"id":267,"parentId":229,"menuName":"设备采购信息","url":"/products","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":268,"parentId":229,"menuName":"设备维护信息","url":"/productCategorys","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+    ]},
+    {"id":3,"parentId":0,"menuName":"结构信息","url":null,"icon":"el-icon-document-copy","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"全桥设计标准","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"结构","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"材料","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]},
+                    {"id":267,"parentId":229,"menuName":"共性材料","url":"/products","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+    ]},
+    {"id":4,"parentId":0,"menuName":"数据分析","url":null,"icon":"el-icon-s-data","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"荷载与环境","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"结构整体响应","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"结构局部响应","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]},
+                    {"id":267,"parentId":229,"menuName":"特殊事件","url":"/products","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+    ]},
+    {"id":5,"parentId":0,"menuName":"实时预警","url":null,"icon":"el-icon-loading","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"荷载与环境","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"结构整体响应","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"结构局部响应","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]}       
+    ]},
+    {"id":6,"parentId":0,"menuName":"综合预警","url":null,"icon":"el-icon-warning","orderNum":0,"open":0,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"安全一级评定","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+        {"id":364,"parentId":312,"menuName":"结构自振频率预警","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+    ]},
+    {"id":7,"parentId":0,"menuName":"人工巡检与管养决策","url":null,"icon":"el-icon-tickets","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"评定标准","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"监测信息","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+    ]},
+    {"id":8,"parentId":0,"menuName":"评估报告","url":null,"icon":"el-icon-notebook-2","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"月度报告","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"季度报告","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"年度报告","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]}
+    ]},
+    {"id":9,"parentId":0,"menuName":"系统管理","url":null,"icon":"el-icon-s-tools","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
+        "children":[{"id":365,"parentId":312,"menuName":"用户信息管理","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"预警值设置","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":229,"parentId":312,"menuName":"手工数据处理","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]}
+    ]}
+       
+]}
