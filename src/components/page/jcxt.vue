@@ -22,12 +22,12 @@
             placeholder="请选择传感器类型">
           <el-option
             v-for="sensortypecode in sensortypelist"
-              :label="sensortypecode.name"
-              :key="sensortypecode.type"
-              :value="sensortypecode.type"
+              :label="sensortypecode.text"
+              :key="sensortypecode.id"
+              :value="sensortypecode.id"
               >
-              <span style="float: left">{{ sensortypecode.name }}</span>
-              <span style="float: right; color: #8492a6; font-size: 13px">{{ sensortypecode.type }}</span>
+              <span style="float: left">{{ sensortypecode.text }}</span>
+              <span style="float: right; color: #8492a6; font-size: 13px">{{ sensortypecode.id }}</span>
           </el-option>
         </el-select>
         </el-form-item>
@@ -42,7 +42,7 @@
           <el-button  
             icon="el-icon-plus"
             type="primary" 
-            @click="addDialogVisible=true">添加</el-button>
+            @click="addoredit()">添加</el-button>
         </el-form-item>
         <el-form-item>
           <download-excel
@@ -95,8 +95,8 @@
       label="操作"
       width="90">
       <template slot-scope="scope">
-        <el-button @click="handleClick(scope.row)" type="text" size="small">修改</el-button>
-        <el-button type="text" size="small">删除</el-button>
+        <el-button  @click="addoredit(scope.row.id)" type="text" size="small" >编辑</el-button>
+        <el-button type="text" size="small"  @click="del(scope.$index,scope.row)">删除</el-button>
       </template>
     </el-table-column>
           <!-- <el-table-column label="操作" width="100px;">
@@ -125,285 +125,16 @@
         :total="total"
       ></el-pagination>
     </el-card>
-    <!-- 部门别添加弹出框 -->
-      <el-dialog title="传感器信息" :visible.sync="addDialogVisible" width="60%" @close="closeAddDialog">
-        <span>
-          <el-form label-width="100px" class="demo-ruleForm" size="mini">
-            <el-divider content-position="left">基本信息</el-divider>
-              <el-row :gutter="20">
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="传感器编号">
-                                <el-input></el-input>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="传感器名称">
-                                    <el-input></el-input>
-
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="传感器类型">
-                                  <el-select placeholder="传感器类型">
-                                  </el-select>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="通道数量">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="监测参数">
-                                <el-select placeholder="监测参数">
-                                  </el-select>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="工作状态">
-                                    <el-select placeholder="工作状态">
-                                  </el-select>
-
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="尺寸">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="方向">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="位置">
-                                <el-input></el-input>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="工作温度">
-                                    <el-input></el-input>
-
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="使用寿命">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="电源要求">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="抗潮湿指标">
-                                <el-input></el-input>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="抗干扰能力">
-                                    <el-input></el-input>
-
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="抗冲振要求">
-                                    <el-input></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="所在构件">
-                                    <el-select placeholder="所在构件">
-                                  </el-select>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="所在截面">
-                                <el-select placeholder="所在截面">
-                                  </el-select>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="监测断面">
-                                    <el-input></el-input>
-
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="虚拟传感器">
-                                    <el-select placeholder="虚拟传感器">
-                                      <el-option label="虚拟传感器" value="0"></el-option>
-                                      <el-option label="非虚拟传感器" value="1"></el-option>
-                                  </el-select>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="6">
-                        <div class="grid-content bg-purple">
-                            <div class="grid-content bg-purple">
-                                <el-form-item label="节点空间坐标">
-                                    <el-input style="width: 33%"></el-input ><el-input style="width: 33%"></el-input><el-input style="width: 33%"></el-input>
-                                </el-form-item>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="18">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="传感器图片" prop="logo">
-                              <el-upload
-  class="upload-demo"
-  drag
-  action="https://jsonplaceholder.typicode.com/posts/"
-  multiple>
-  <i class="el-icon-upload"></i>
-  <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-  <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-</el-upload>
-                                <!-- <el-upload
-                                action="uploadUrl"
-                                  :show-file-list="false"
-                                  :accept="'image/*'"
-                                  :on-success="handleSuccess"
-                                  :on-error="handleError"
-                                  :before-upload="handleBeforeUpload"
-                                  :on-progress="handleProgress"
-                                  
-                                >
-                                  <el-button type="primary" size="small">上传图片</el-button>
-                                </el-upload> -->
-                                <!--大图弹出框-->
-                                <el-dialog :visible.sync="imgDialogVisible" size="full" :modal="false" title="查看大图片">
-                                <img width="100%" :src="dialogImageUrl" alt="">
-                                </el-dialog>
-                                </el-form-item>
-                        </div>
-                    </el-col>
-                    
-                   
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="18">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="安装方式">
-                                <el-input type="textarea" ></el-input>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    
-                   
-                </el-row>
-                <el-row :gutter="20">
-                    <el-col :span="18">
-                        <div class="grid-content bg-purple">
-                            <el-form-item label="备注">
-                                <el-input type="textarea"></el-input>
-                            </el-form-item>
-                        </div>
-                    </el-col>
-                    
-                   
-                </el-row>
-            <h5 style="margin: 0px;padding: 0px;"></h5>
-            <el-divider content-position="left" >通道信息</el-divider>
-            <!-- <el-form-item label="部门名称" prop="name">
-              <el-input v-model="addRuleForm.name"></el-input>
-            </el-form-item>
-            <el-form-item label="办公电话" prop="phone">
-              <el-input v-model="addRuleForm.phone"></el-input>
-            </el-form-item>
-            <el-form-item label="办公地址" prop="address">
-              <el-input type="textarea" v-model="addRuleForm.address"></el-input>
-            </el-form-item> -->
-          </el-form>
-        </span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="addDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="add" :disabled="btnDisabled" :loading="btnLoading">保 存</el-button>
-        </span>
-      </el-dialog>
+    <!-- <el-dialog  :visible.sync="dialogFormVisible" append-to-body style="width:100%"> -->
+    <jcxtAddorEdit-page v-if="dialogFormVisible" ref="jcxtAddorEdit"></jcxtAddorEdit-page>
   </div>
   
 </template>
 
 <script>
 import axios from "axios";
+import jcxtAddorEdit from './jcxtAddorEdit'
+//import jcxtAddorEdit from "@/jcxtAddorEdit.vue"
 
 export default {
   data() {
@@ -420,6 +151,10 @@ export default {
       sensortypelist: [],
       //queryMap: { pageNum: 1, pageSize: 10, location: "" } 
       queryMap:{monitparatype:'',monitpara:'',sensortype:'',pageNumber:1,pageSize:20,structure:this.GLOBAL.structure },//查询对象
+      components: {
+        jcxtAddorEdit
+      },
+      dialogFormVisible: false,
       json_fields: {
 		          "类型": "sensortypecode",
 		          "编号": "sensorcode",
@@ -442,8 +177,10 @@ export default {
 		              " value ": " utf- 8 "
 		            }
 		          ]
-		        ],
-      
+            ],
+      //addRuleForm: {}, //添加表单数据
+      //editRuleForm: {}, //修改表单数据
+
     };
   },
   mounted() {
@@ -451,9 +188,10 @@ export default {
           //this.getMapWarnType();
           this.getallsensors();
           this.$nextTick(() => {
-            this.Height = window.innerHeight - 240;
+          this.Height = window.innerHeight - 240;
             //后面100一般是根据你上下导航栏的高度来减掉即可。
           })
+          //this.$refs.dialog.open()
          // getfilterlist();
              
          },
@@ -469,6 +207,7 @@ export default {
         const property = column['property'];
         return row[property] === value;
       },
+      
     // async getMapWarnType() {
     //   await this.$axios.get(this.api.getMapWarnType,{params:this.structure}).then(response => {
     //     const jsonb = response.replace(/type/g,'value')
@@ -513,9 +252,9 @@ export default {
      * 加载所有传感器用于按传感器信息查询
      */
     async getallsensors() {
-      await this.$axios.get(this.api.getMapWarnType,{params:this.structure}).then(response => {
-        const sensortype = JSON.parse(response)
-        this.sensortypelist = sensortype
+      await this.$axios.get(this.api.getcgqlx,{params:this.structure}).then(response => {
+        //const sensortype = JSON.parse(response)
+        this.sensortypelist = response
       });
     },
     /**
@@ -551,28 +290,42 @@ export default {
     //     }
     //   }
     // },
-    //添加传感器信息
-    add: function () {
-      this.$refs.addRuleFormRef.validate(async valid => {
-        if (!valid) {
-          return;
-        } else {
-          (this.btnLoading = true), (this.btnDisabled = true);
-          const {data: res} = await this.$http.post(
-                  "sensorinfo/add",
-                  this.addRuleForm
-          );
-          if (res.code === 200) {
-            this.$message.success("部门添加成功");
-            this.addRuleForm = {};
-            this.getDepartmentList();
-          } else {
-            return this.$message.error("部门添加失败:" + res.msg);
-          }
-          this.addDialogVisible = false;
-          (this.btnLoading = false), (this.btnDisabled = false);
-        }
-      });
+    //添加传感器信息 弹出添加页面
+    //add: function () {
+      // this.$refs.addRuleFormRef.validate(async valid => {
+      //   if (!valid) {
+      //     return;
+      //   } else {
+      //     (this.btnLoading = true), (this.btnDisabled = true);
+      //     const {data: res} = await this.$http.post(
+      //             "sensorinfo/add",
+      //             this.addRuleForm
+      //     );
+      //     if (res.code === 200) {
+      //       this.$message.success("部门添加成功");
+      //       this.addRuleForm = {};
+      //       this.getDepartmentList();
+      //     } else {
+      //       return this.$message.error("部门添加失败:" + res.msg);
+      //     }
+      //     this.addDialogVisible = false;
+      //     (this.btnLoading = false), (this.btnDisabled = false);
+      //   }
+      // });
+    //},
+
+    addoredit(id){
+        //console.log("ss")
+        //let roleId = id;
+        this.dialogFormVisible = true
+        //console.log(this.form.id)
+        this.$nextTick(()=>{
+            this.$refs.jcxtAddorEdit.init(id);
+       })
+
+      //this.$nextTick(() => {
+      //      this.refs.jcxtAddorEdit.init(id)
+      //    })
     },
     //改变页码
     handleSizeChange(newSize) {
@@ -585,15 +338,15 @@ export default {
       this.getcgqbytandp();
     },
     //关闭弹出框
-    closeAddDialog() {
-      this.$refs.addRuleFormRef.clearValidate();
-      this.addRuleForm = {};
-    },
+    //closeAddDialog() {
+     // this.$refs.addRuleFormRef.clearValidate();
+     // this.addRuleForm = {};
+    //},
     //关闭弹出框
-    closeEditDialog() {
-      this.$refs.editRuleFormRef.clearValidate();
-      this.editRuleForm = {};
-    },
+    //closeEditDialog() {
+    //  this.$refs.editRuleFormRef.clearValidate();
+    //  this.editRuleForm = {};
+    //},
     /*----- 以下为图片处理代码 ------*/
     handleSuccess(response, file, fileList) {
       this.$success("上传成功");
@@ -626,3 +379,6 @@ export default {
   }
 };
 </script>
+<style scoped>
+.el-dialog {width:80%}
+</style>

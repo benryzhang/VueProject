@@ -20,6 +20,10 @@ Vue.prototype.GLOBAL = global//挂载到Vue实例上面
 
 const Plugins = [ hasPermission ]
 
+import jcxtAddorEdit from './components/page/jcxtAddorEdit.vue'
+Vue.component('jcxtAddorEdit-page', jcxtAddorEdit)
+import jcxtChannel from './components/page/jcxtChannel.vue'
+Vue.component('jcxtChannel-page', jcxtChannel)
 //import './oracl/oracledb.js'
 
 
