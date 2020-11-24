@@ -311,9 +311,9 @@
                         :name="item.name"
                         closable
                     >
-                    <div v-for="(d,index) in counter" :key="index">
+                    <!-- <div v-for="(d,index) in counter" :key="index"> -->
                         <jcxtChannel-page></jcxtChannel-page>
-                    </div>
+                    <!-- </div> -->
                     </el-tab-pane>
                     <el-tab-pane key="add" name="add">
                         <span slot="label" style="padding: 8px;font-size:20px;font-weight:bold;" @click="addchannel">
@@ -321,9 +321,6 @@
                         </span>
                     </el-tab-pane>
                 </el-tabs>
-                
-            
-           
         </span>
         
         
