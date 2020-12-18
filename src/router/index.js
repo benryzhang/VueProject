@@ -5,7 +5,8 @@ import NotPermission from '../components/401.vue'
 import jcxt from '../components/page/jcxt.vue'
 import home from '../components/common/home.vue'
 import welcome from '../components/gcgk/welcome.vue'
-
+import detection from '../components/page/detection.vue'
+import standard from '../components/page/standard.vue'
 Vue.use(VueRouter)
 const routes = [
     {
@@ -29,6 +30,14 @@ const routes = [
       }, {
         path: '/welcome',
         component: welcome
+      },
+      {
+        path: '/detection',
+        component: detection
+      },
+      {
+        path: '/standard',
+        component: standard
       }
       // children: [{
       //   path: '/jcxt',

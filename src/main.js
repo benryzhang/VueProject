@@ -11,19 +11,29 @@ import 'element-ui/lib/theme-chalk/index.css'
 import animated from 'animate.css'
 import echarts from 'echarts'
 import global from './assets/js/global.js'//引用文件
-
+import qs from 'qs'
 import { hasPermission } from './assets//js/permissionDirect'
 
 import JsonExcel from 'vue-json-excel'
 Vue.component('downloadExcel', JsonExcel)
 Vue.prototype.GLOBAL = global//挂载到Vue实例上面
-
+import moment from 'moment'
+Vue.prototype.$moment = moment
 const Plugins = [ hasPermission ]
 
 import jcxtAddorEdit from './components/page/jcxtAddorEdit.vue'
 Vue.component('jcxtAddorEdit-page', jcxtAddorEdit)
 import jcxtChannel from './components/page/jcxtChannel.vue'
 Vue.component('jcxtChannel-page', jcxtChannel)
+import jcxtChannelcont from './components/page/jcxtChannelcont.vue'
+Vue.component('jcxtChannelcont-page', jcxtChannelcont)
+
+import detectionPanel from './components/page/detectionPanel.vue'
+Vue.component('detectionPanel-page', detectionPanel)
+import standardPanel from './components/page/standardPanel.vue'
+Vue.component('standardPanel-page', standardPanel)
+//import jcxtChannel from './components/page/jcxtChannel.vue'
+//Vue.component('jcxtChannel-page', jcxtChannel)
 //import './oracl/oracledb.js'
 
 
@@ -57,6 +67,20 @@ Vue.use(animated)
 //   i18n: (key, value) => i18n.t(key, value)
 // })
 //Vue.use(Element, { size: 'small', zIndex: 3000 });
+Vue.filter('dateFormat', function(originVal) {
+  const dt = new Date(originVal)
+
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 new Vue({

@@ -34,8 +34,8 @@
         {"id":364,"parentId":312,"menuName":"结构自振频率预警","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
     ]},
     {"id":7,"parentId":0,"menuName":"人工巡检与管养决策","url":null,"icon":"el-icon-tickets","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
-        "children":[{"id":365,"parentId":312,"menuName":"评定标准","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
-                    {"id":364,"parentId":312,"menuName":"监测信息","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
+        "children":[{"id":365,"parentId":312,"menuName":"评定标准","url":"/standard","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+                    {"id":364,"parentId":312,"menuName":"检测信息","url":"/detection","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
     ]},
     {"id":8,"parentId":0,"menuName":"评估报告","url":null,"icon":"el-icon-notebook-2","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
         "children":[{"id":365,"parentId":312,"menuName":"月度报告","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},

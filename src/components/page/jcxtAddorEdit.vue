@@ -1,8 +1,8 @@
 <template>
-<el-dialog  title="传感器信息" :visible.sync="dialogFormVisible" append-to-body width="60%" class="abow_dialog" @open = "open" ref = "dialog">
+<el-dialog  title="传感器信息" :visible.sync="dialogFormVisible" append-to-body width="60%" class="abow_dialog" @open = "open" ref = "dialog" v-if="sensorinfolist" @close="closeDialog('sensorinfolist')">
         <span>
-          <el-form label-width="100px" class="demo-ruleForm" size="mini" :model="sensorinfolist" :rules="sensorules" ref="sensorinfolist">
-            <el-divider content-position="left">基本信息</el-divider>
+          <el-form label-width="100px" class="demo-ruleForm" size="mini" :model="sensorinfolist" :rules="sensorules" ref="sensorinfolist" :validate-on-rule-change="false">
+            <!-- <el-divider content-position="left">基本信息</el-divider> -->
               <el-row :gutter="20">
                     <el-col :span="6">
                         <div class="grid-content bg-purple">
@@ -44,7 +44,8 @@
                         <div class="grid-content bg-purple">
                             <div class="grid-content bg-purple">
                                 <el-form-item label="通道数量" prop="channelcount">
-                                    <el-input v-model.number="sensorinfolist.channelcount"></el-input>
+                                    <el-input v-model="sensorinfolist.channelcount" ></el-input>
+                                    <!-- <el-input-number v-model.number="sensorinfolist.channelcount" controls-position="right" :min="1" :max="10"></el-input-number> -->
                                 </el-form-item>
                             </div>
                         </div>
@@ -70,7 +71,7 @@
                         <div class="grid-content bg-purple">
                             <div class="grid-content bg-purple">
                                 <el-form-item label="工作状态" prop="sensorstatus">
-                                    <el-select placeholder="工作状态" v-model="sensorinfolist.sensorstatus">
+                                    <el-select placeholder="请选择工作状态" v-model="sensorinfolist.sensorstatus">
                                         <el-option
                                             v-for="sensorstatuslist in sensorstatuslist"
                                             :key="sensorstatuslist.id"
@@ -169,7 +170,7 @@
                         <div class="grid-content bg-purple">
                             <div class="grid-content bg-purple">
                                 <el-form-item label="虚拟传感器" prop="isvirtualflag">
-                                    <el-select placeholder="虚拟传感器" v-model="isvirtualflagvalue">
+                                    <el-select placeholder="请选择虚拟传感器" v-model="isvirtualflagvalue">
                                       <!-- <el-option label="虚拟传感器" value="0"></el-option>
                                       <el-option label="非虚拟传感器" value="1"></el-option> -->
                                       <el-option
@@ -190,7 +191,7 @@
                         <div class="grid-content bg-purple">
                             <div class="grid-content bg-purple">
                                 <el-form-item label="所在构件" prop="componentid">
-                                    <el-select placeholder="所在构件" v-model="sensorinfolist.componentid" @change="reloadSectionInfo">
+                                    <el-select placeholder="请选择所在构件" v-model="sensorinfolist.componentid" @change="reloadSectionInfo">
                                         <el-option
                                         v-for="szgjbhlist in szgjbhlist"
                                         :label="szgjbhlist.text"
@@ -206,7 +207,7 @@
                     <el-col :span="6">
                         <div class="grid-content bg-purple">
                             <el-form-item label="所在截面" prop="sectionid" >
-                                <el-select placeholder="所在截面" v-model="sensorinfolist.sectionid">
+                                <el-select placeholder="请选择所在截面" v-model="sensorinfolist.sectionid">
                                     <el-option
                                         v-for="sectionlist in sectionlist"
                                         :label="sectionlist.sectionname"
@@ -241,10 +242,21 @@
                 </el-row>
                 
                 <el-row :gutter="20">
-                    <el-col :span="18">
+                    <el-col :span="6">
                         <div class="grid-content bg-purple">
                             <el-form-item label="传感器图片" prop="picture" >
-                              <el-upload
+                                <el-upload
+                                    class="avatar-uploader"
+                                    action="D:\xxbp\bshm_xxbp\src\assets\img"
+                                    :show-file-list="false"
+                                    :on-success="handleAvatarSuccess"
+                                    :before-upload="beforeAvatarUpload"
+                                    >
+                                    
+                                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                                    </el-upload>
+                              <!-- <el-upload
                                 class="upload-demo"
                                 drag
                                 action="https://jsonplaceholder.typicode.com/posts/"
@@ -252,7 +264,7 @@
                                 <i class="el-icon-upload"></i>
                                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
                                 <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-                              </el-upload>
+                              </el-upload> -->
                                 <!-- <el-upload
                                 action="uploadUrl"
                                   :show-file-list="false"
@@ -268,66 +280,58 @@
                                 </el-form-item>
                         </div>
                     </el-col>
-                    
-                   
-                </el-row>
-                <el-row :gutter="20">
                     <el-col :span="18">
                         <div class="grid-content bg-purple">
                             <el-form-item label="安装方式" prop="installation">
-                                <el-input type="textarea" v-model="sensorinfolist.installation"></el-input>
+                                <el-input type="textarea" v-model="sensorinfolist.installation" ></el-input>
                             </el-form-item>
                         </div>
                     </el-col>
-                    
-                   
-                </el-row>
-                <el-row :gutter="20">
                     <el-col :span="18">
                         <div class="grid-content bg-purple">
                             <el-form-item label="备注" prop="describe">
-                                <el-input type="textarea" v-model="sensorinfolist.describe"></el-input>
+                                <el-input type="textarea" v-model="sensorinfolist.describe" ></el-input>
                             </el-form-item>
                         </div>
                     </el-col>
-                    
                    
                 </el-row>
+                
             <h5 style="margin: 0px;padding: 0px;"></h5>
             
           </el-form>
-          <el-button @click="addchannel" type="primary">增加通道</el-button>
-          <el-button @click="delchannel" type="primary">删减通道</el-button>
-            <el-divider content-position="left" >通道信息</el-divider>
-            <el-tabs v-model="editableTabsValue" type="card" 
+          <!-- <el-button @click="addchannel" type="primary">增加通道</el-button>
+          <el-button @click="delchannel" type="primary">删减通道</el-button> -->
+            <!-- <el-divider content-position="left" v-if="isShow">通道信息</el-divider>
+            <el-tabs v-model="editableTabsValue" type="card"  v-show="isShow"
                     @tab-remove="removeTab" 
                     :before-leave="beforeLeave"
                     class="my-tab-pane"
                     >
                     <el-tab-pane
-                        v-for="(item, index) in editableTabs"
+                        v-for="item in editableTabs"
                         :key="item.name"
                         :label="item.title"
                         :name="item.name"
                         closable
                     >
-                    <!-- <div v-for="(d,index) in counter" :key="index"> -->
+
                         <jcxtChannel-page></jcxtChannel-page>
-                    <!-- </div> -->
+ 
                     </el-tab-pane>
                     <el-tab-pane key="add" name="add">
                         <span slot="label" style="padding: 8px;font-size:20px;font-weight:bold;" @click="addchannel">
                             +
                         </span>
                     </el-tab-pane>
-                </el-tabs>
+                </el-tabs> -->
         </span>
         
         
      <!-- 确定按钮 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="add" >保 存</el-button>
+          <el-button @click="cancledialog">取 消</el-button>
+          <el-button type="primary" @click="savejcxtdata('sensorinfolist')" >保 存</el-button>
         </span>
 </el-dialog>
 
@@ -337,20 +341,22 @@ import jcxtChannel from './jcxtChannel'
   export default {
     data() {
       return {
-          editableTabsValue: '1',
-                currentIndex:1,
-                editableTabs: [{
-                title: '通道1',
-                name: '1',
-                }],
-                tabIndex: 1,
-                addIndex:1,
+        // editableTabsValue: '1',
+        // currentIndex:1,
+        // editableTabs: [{
+        // title: '通道1',
+        // name: '1',
+        // }],
+        // tabIndex: 1,
+        // addIndex:1,
+        // isShow:true,
         dialogFormVisible:false,
         structure:{structure:this.GLOBAL.structure},
         ChCodeStatus:{code:"ChCodeStatus",structure:this.GLOBAL.structure},
         sensorstatuslist:{},
         sensorinfolist: {},
         sensortypelist:{},
+        channelcount:(''),
         szgjbhlist:{},
         cgqjccslist:{},
         sectionlist:{},
@@ -366,6 +372,7 @@ import jcxtChannel from './jcxtChannel'
         },
         counter:[],
         isvirtualflagvalue:'',
+        imageUrl: 'sensor/ACC.png',
         sensorules: {
           sensorcode: [
             { required: true, message: '请输入传感器编号', trigger: 'blur' },
@@ -379,7 +386,7 @@ import jcxtChannel from './jcxtChannel'
             { required: true, message: '请选择传感器类型', trigger: 'change' }
           ],
           channelcount: [
-            { type: 'number', message: '通道数量必须为数字值', trigger: 'blur' }
+            {  message: '通道数量必须为数字值',min:0 }//type:'number',
           ],
           monitpara: [
             { required: true, message: '请选择监测参数', trigger: 'change' }
@@ -414,9 +421,9 @@ import jcxtChannel from './jcxtChannel'
           impactvibration: [
             { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'blur'}
           ],
-          componentid: [
+          componentid: [{required: true, message: '请选择所在构件', trigger: 'change'}
           ],
-          sectionid: [
+          sectionid: [{required: true, message: '请选择所在截面', trigger: 'change'}
           ],
           sensorsection: [
             { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'blur'}
@@ -434,12 +441,13 @@ import jcxtChannel from './jcxtChannel'
       };
     },
     mounted() {
-          //this.getallsensors();
-         },
+          this.getinfobykey();
+    },
     methods: {
         init(id){
             //this.form.id = id || 0
             this.dialogFormVisible = true
+            //this.dialogChannel = true
             this.$nextTick(()=>{
             //this.$refs.jcxtAddorEdit.init(id);
             })
@@ -450,6 +458,7 @@ import jcxtChannel from './jcxtChannel'
             this.getcgqjccs()
             this.getsyscodeinfo()
             this.getszgjbh()
+            this.getSectionIdByType()
         },
         async getallsensors() {
             await this.$axios.get(this.api.getcgqlx,{params:this.structure}).then(response => {
@@ -472,6 +481,11 @@ import jcxtChannel from './jcxtChannel'
                 this.szgjbhlist = response
             });
         },
+        async getSectionIdByType() {
+            await this.$axios.get(this.api.getSectionIdByType,{params:this.structure}).then(response => {
+                this.sectionlist = response
+            });
+        },
         async reloadSectionInfo(val) {
             let obj = {};
             obj = this.szgjbhlist.find(function(item){
@@ -482,13 +496,29 @@ import jcxtChannel from './jcxtChannel'
                 this.sensorinfolist.sectionid = this.sectionlist[0].sectionname;
             });
         },
-        
+        async getinfobykey(info){
+            // console.log(info.channelcount)
+            // if(info != '{}'){
+                
+            // }
+            //this.reloadSectionInfo()
+            //console.log(info.componentid)
+            //this.reloadSectionInfo(info.componentid)
+            //this.getszgjbh()
+            this.sensorinfolist=info
+            this.imageUrl = this.sensorinfolist.picture
+            //console.log(this.sensorinfolist.picture)
+            //console.log(this.sensorinfolist.channelcount)
+            //.channelcount = Number(this.sensorinfolist.channelcount)
+            //console.log(this.sensorinfolist)
+        },
         submitForm(formName) {
             this.$refs[formName].validate((valid) => {
             if (valid) {
                 alert('submit!');
             } else {
-                console.log('error submit!!');
+                this.$Message.info("查询");
+                console.log('请完善传感器基本信息');
                 return false;
             }
             });
@@ -501,6 +531,7 @@ import jcxtChannel from './jcxtChannel'
             // name: '',
             // phone: ''
             // })
+            this.isShow = true
             let newTabIndex = ++this.tabIndex + '';
             this.editableTabs.push({
                 title: '通道'+ ++this.addIndex,
@@ -508,56 +539,122 @@ import jcxtChannel from './jcxtChannel'
             });
             this.editableTabsValue = newTabIndex;
             this.currentIndex=newTabIndex;
+            //console.log()
             this.counter.push({})
 
             
-            },
-        add(){},
+        },
+        async savejcxtdata(formName){
+            this.$refs[formName].validate((valid) => {
+            if (valid) {
+                /* formData格式提交： */
+                this.$delete(this.sensorinfolist,'fm')
+                const qs = require('qs');
+                let formData = JSON.stringify(this.sensorinfolist)
+                const prm = qs.stringify({type:'cgq',fdata:formData,structure:this.GLOBAL.structure})
+                this.$axios.post(this.api.updatebaseinfo,prm).then(response => {
+                   // this.szgjbhlist = response
+                   const result = JSON.parse(response)
+                   if(result.errorMsg){
+                            this.$message({
+                            message: '传感器信息保存失败',
+                            center: true
+                        });
+                   }else{
+                       this.$message({
+                            message: '传感器信息保存成功',
+                            type: 'success',
+                            center: true
+                        });
+                        this.cancledialog()
+                   }
+                    
+                })
+                .catch(err => {
+	
+                })
+            } else {
+                this.$message({
+                    message: '请完善传感器基本信息',
+                    center: true
+                    });
+                return false;
+            }
+            });
+        },
         delchannel (item, index) {
             this.form.dynamicItem.splice(index, 1)
         },
-        removeTab(targetName) {
-	if(this.editableTabs.length<=1){
-		return false;
-	}
-	var self=this;
-	let tabs = self.editableTabs;
-	let activeName = self.editableTabsValue;
-	if (activeName === targetName) {
-		tabs.forEach((tab, index) => {
-			if (tab.name === targetName) {
-				let nextTab = tabs[index + 1] || tabs[index - 1];
-				if (nextTab) {
-					activeName = nextTab.name;
-				}
-			}
-		});
-	}
-	self.editableTabsValue = activeName;
-	
-	self.editableTabs = tabs.filter(tab => tab.name !== targetName);
-	
-	self.editableTabs.map((tab,index)=>{
-		tab.title="通道"+(index+1);
-		self.addIndex=(index+1);
-	})
-	self.currentIndex=self.editableTabsValue;
-	self.$message({
-						type: 'success',
-						message: '通道删除成功!'
-	});
-},
-/* 活动标签切换时触发 */
-beforeLeave(currentName,oldName) {
-	var self=this;
-	//重点，如果name是add，则什么都不触发
-	if(currentName=="add"){
-		this.addTab()
-		return false
-	}else{
-		this.currentIndex=currentName;
-	}
-}
+        cancledialog(formRule){
+            this.dialogFormVisible = false
+            this.$refs.sensorinfolist.resetFields();
+        },
+        // 关闭 Modal 执行
+        closeDialog(formName) {
+            this.$refs.sensorinfolist.resetFields();
+        },
+        // removeTab(targetName) {
+        //     if(this.editableTabs.length<=0){
+        //         this.isShow = false
+        //         return false;
+        //     }
+        //     var self=this;
+        //     let tabs = self.editableTabs;
+        //     let activeName = self.editableTabsValue;
+        //     if (activeName === targetName) {
+        //         tabs.forEach((tab, index) => {
+        //             if (tab.name === targetName) {
+        //                 let nextTab = tabs[index + 1] || tabs[index - 1];
+        //                 if (nextTab) {
+        //                     activeName = nextTab.name;
+        //                 }
+        //             }
+        //         });
+        //     }
+        //     self.editableTabsValue = activeName;
+            
+        //     self.editableTabs = tabs.filter(tab => tab.name !== targetName);
+            
+        //     self.editableTabs.map((tab,index)=>{
+        //         tab.title="通道"+(index+1);
+        //         self.addIndex=(index+1);
+        //     })
+        //     self.currentIndex=self.editableTabsValue;
+        //     // if(this.editableTabs.length<=0){
+        //     //     self.currentIndex = 0
+        //     // }
+        //     console.log(self.currentIndex)
+        //     self.$message({
+        //                         type: 'success',
+        //                         message: '通道删除成功!'
+        //     });
+        // },
+        handleAvatarSuccess(res, file) {
+        this.imageUrl = URL.createObjectURL(file.raw);
+        },
+        beforeAvatarUpload(file) {
+            const isJPG = file.type === 'image/jpeg';
+            const isLt2M = file.size / 1024 / 1024 < 2;
+
+            if (!isJPG) {
+            this.$message.error('上传头像图片只能是 JPG 格式!');
+            }
+            if (!isLt2M) {
+            this.$message.error('上传头像图片大小不能超过 2MB!');
+            }
+            return isJPG && isLt2M;
+        },
+            /* 活动标签切换时触发 */
+        beforeLeave(currentName,oldName) {
+            var self=this;
+            //重点，如果name是add，则什么都不触发
+            if(currentName=="add"){
+                //this.addTab()
+                return false
+            }else{
+                this.currentIndex=currentName;
+            }
+        }
         }
   }
 </script>
@@ -569,10 +666,10 @@ beforeLeave(currentName,oldName) {
     overflow: hidden;}
 .el-dialog {
     margin: 0px auto !important;
-    height: 90%;
+    height: 78%;
     overflow: hidden;}
 .el-dialog__body {
-    position: absolute;
+    /* position: absolute;
     left: 40;
     top: 44px;
     bottom: 0;
@@ -580,8 +677,45 @@ beforeLeave(currentName,oldName) {
     padding: 60;
     z-index: 1;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: auto; */
+    height: 82%;
+  overflow: auto;
+}
+.el-dialog-div {
+  height: 78%;
+  overflow: auto;
 }
 /* .el-form-item--mini.el-form-item, .el-form-item--small.el-form-item{margin-bottom:4px;}    */
 .dialog-footer{position:relative;margin-right:0;margin-bottom:0}
+.el-input__inner{ padding: 0 8px;}
+input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+    .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    display: block;
+  }
 </style>
