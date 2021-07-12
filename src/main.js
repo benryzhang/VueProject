@@ -10,7 +10,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 //import 'element-ui/lib/theme-chalk/display.css'
 import animated from 'animate.css'
 import echarts from 'echarts'
-import global from './assets/js/global.js'//引用文件
+import global from './assets/js/global.js'//引用全局变量文件
+import yjpdEchart from './assets/js/yjpdEchart.js'//引用yjpdEchart文件
+
 import qs from 'qs'
 import { hasPermission } from './assets//js/permissionDirect'
 
@@ -32,6 +34,28 @@ import detectionPanel from './components/page/detectionPanel.vue'
 Vue.component('detectionPanel-page', detectionPanel)
 import standardPanel from './components/page/standardPanel.vue'
 Vue.component('standardPanel-page', standardPanel)
+import userPanel from './components/page/userPanel.vue'
+Vue.component('userPanel-page', userPanel)
+import warnvaluePanel from './components/page/warnvaluePanel.vue'
+Vue.component('warnvaluePanel-page', warnvaluePanel)
+
+import dataV from '@jiaminghi/data-view'
+Vue.use(dataV)
+
+
+Vue.component('LeftChart1', LeftChart1)
+import LeftChart1 from './components/monitoringmodule/LeftChart1.vue'
+Vue.component('LeftChart2', LeftChart2)
+import LeftChart2 from './components/monitoringmodule/LeftChart2.vue'
+Vue.component('LeftChart3', LeftChart3)
+import LeftChart3 from './components/monitoringmodule/LeftChart3.vue'
+Vue.component('RightChart1', RightChart1)
+import RightChart1 from './components/monitoringmodule/RightChart1.vue'
+Vue.component('CenterCmp', CenterCmp)
+import CenterCmp from './components/monitoringmodule/CenterCmp.vue'
+Vue.component('BottomCharts', BottomCharts)
+import BottomCharts from './components/monitoringmodule/BottomCharts.vue'
+
 //import jcxtChannel from './components/page/jcxtChannel.vue'
 //Vue.component('jcxtChannel-page', jcxtChannel)
 //import './oracl/oracledb.js'
@@ -53,14 +77,17 @@ import api from './api/api.js'
 import http from './api/http.js'
 import VueResource from 'vue-resource'
 import querystring from 'querystring'
+//import pdf from 'vue-pdf'
 
 Vue.prototype.api = api;
 Vue.prototype.http = http;
+Vue.prototype.yjpdEchart = yjpdEchart;
 Vue.prototype.$axios = axios;
 Vue.prototype.$querystring = querystring;
 Vue.prototype.$echarts = echarts
 Vue.use(VueResource)
 Vue.use(animated)
+//Vue.use(pdf)
 
 // Vue.use(ElementUI, {
 //   size: 'medium',

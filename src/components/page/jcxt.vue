@@ -259,7 +259,7 @@ export default {
      * 加载所有传感器用于按传感器信息查询
      */
     async getallsensors() {
-      await this.$axios.get(this.api.getcgqlx,{params:this.structure}).then(response => {
+      await this.$axios.get(this.api.getcgqlx,{params:this.GLOBAL.structure}).then(response => {
         //const sensortype = JSON.parse(response)
         this.sensortypelist = response
       });

@@ -20,6 +20,39 @@ export default {
     getDamageDataById:process.env.VUE_APP_BASE_API + "/getDamageDataById",    //获取人工巡检评定标准病害详细信息，用于编辑窗口
     getDamageTypeByBlockType:process.env.VUE_APP_BASE_API + "/getDamageTypeByBlockType",    //获取人工巡检评定标准构件类型
     saveAddDamageDataInfo:process.env.VUE_APP_BASE_API + "/saveAddDamageDataInfo",    //获取人工巡检评定标准检测信息保存
+    getAllRoleInfo:process.env.VUE_APP_BASE_API + "/adminInfo/getAllRoleInfo",    //获取所有人物角色权限
+    getAllInfoData:process.env.VUE_APP_BASE_API + "/adminInfo/getAllInfoData",    //获取所有人物信息
+    getUserInfoDataByUsername:process.env.VUE_APP_BASE_API + "/adminInfo/getUserInfoDataByUsername",    //获取所有人物信息
+    getEnabledTypeList:process.env.VUE_APP_BASE_API + "/adminInfo/getEnabledTypeList",    //获取用户信息权限
+    getPermissonTypeList:process.env.VUE_APP_BASE_API + "/adminInfo/getPermissonTypeList",    //获取用户状态是否可用
+    saveAddDataInfo:process.env.VUE_APP_BASE_API + "/adminInfo/saveAddDataInfo",    //新增或修改保存用户信息
+    deleteUserInfoData:process.env.VUE_APP_BASE_API + "/adminInfo/deleteUserInfoData",    //删除用户信息
+    getAllAlarmInfo:process.env.VUE_APP_BASE_API + "/getAllAlarmInfo",    //获取预警值信息
+    getsyscodeinfoinalarmlevel:process.env.VUE_APP_BASE_API + "/getsyscodeinfoinalarmlevel",    //获取预警级别
+    getSensorcodeBySensortype:process.env.VUE_APP_BASE_API + "/getSensorcodeBySensortype",    //获取传感器编号
+    getChannelcodeBySensorcode:process.env.VUE_APP_BASE_API + "/getChannelcodeBySensorcode",    //获取传感器通道编号
+    getLimitKindInfo:process.env.VUE_APP_BASE_API + "/getLimitKindInfo",    //获取传感器阈值类型
+    getAlarmVisibleInfo:process.env.VUE_APP_BASE_API + "/getAlarmVisibleInfo",    //获取传感器预警是否可见
+    saveAddAlarmDataInfo:process.env.VUE_APP_BASE_API + "/saveAddAlarmDataInfo",    //保存预警信息
+    deleteAlarmInfoData:process.env.VUE_APP_BASE_API + "/deleteAlarmInfoData",    //删除预警信息
+    getReportInfoByTime:process.env.VUE_APP_BASE_API + "/getReportInfoByTime",    //手工生成数据报告
+
+    
+    getAQYJRTDataByCode:process.env.VUE_APP_BASE_API + "/getAQYJRTDataByCode",    //测试图标查询RT UAN数据
+    getBasicSjfxInfo:process.env.VUE_APP_BASE_API + "/getBasicSjfxInfo",    //测试THM数据分析数据
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

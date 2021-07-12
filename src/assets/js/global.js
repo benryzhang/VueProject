@@ -1,4 +1,4 @@
-const structure='XXC';
+const structure='';
   export default
   {
     structure

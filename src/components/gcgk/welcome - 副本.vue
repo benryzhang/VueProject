@@ -1,5 +1,6 @@
 <template>
 <div id="welcome">
+  <dv-full-screen-container>content</dv-full-screen-container>
     <el-row :gutter="10">
       <!-- 左边部分 -->
       <el-col :span="10" >
@@ -9,23 +10,31 @@
           <div id="main" style="width: 650px;height:400px;"></div>
         </div>
         </el-card>
-        <!-- 项目概况 -->
+        
+      </el-col>
+      <!-- 右边部分 ---->
+      <el-col :span="14" >
+        <div class="grid-content bg-purple">
+          <!-- 项目概况 -->
         <el-card class="box-card" style="margin-top:20px;padding:0px;">
-          <div id="introduce" style="width: 650px;height:270px;">
+          <div id="introduce">
             <p style="width:100%">{{ introduceText }}</p>
           </div>
         </el-card>
+
+          <!-- <el-calendar :v-model="new Date()"></el-calendar> -->
+        </div>
       </el-col>
-      <!-- 右边部分 -->
+      <!-- 右边部分 --
       <el-col :span="14" >
         <div class="grid-content bg-purple">
           <el-card style="min-height:650px;">
            
           
           </el-card>
-          <!-- <el-calendar :v-model="new Date()"></el-calendar> -->
+          <!-- <el-calendar :v-model="new Date()"></el-calendar> 
         </div>
-      </el-col>
+      </el-col>-->
     </el-row>
 
     <!-- <el-card class="box-card">
@@ -49,6 +58,9 @@
 </template>
 
 <script>
+import { borderBox1 } from '@jiaminghi/data-view'
+
+//Vue.use(borderBox1)
 export default {
   data() {
     return {
@@ -160,7 +172,7 @@ window.onload = function() {
   },
   mounted() {
     this.myEcharts();
-    this.getobjdescribe();
+    //this.getobjdescribe();
   }
 }
 </script>

@@ -4,9 +4,19 @@ import login from '../components/longin.vue'
 import NotPermission from '../components/401.vue'
 import jcxt from '../components/page/jcxt.vue'
 import home from '../components/common/home.vue'
-import welcome from '../components/gcgk/welcome.vue'
+import welcome from '../components/welcome.vue'
 import detection from '../components/page/detection.vue'
 import standard from '../components/page/standard.vue'
+import user from '../components/page/user.vue'
+import warnvalue from '../components/page/warnvalue.vue'
+import dataprocessing from '../components/page/dataprocessing.vue'
+import report from '../components/page/report.vue'
+import cphsWarning from '../components/page/cphsWarning.vue'
+import bridge from '../components/gcgk/bridge.vue'
+import introduce from '../components/gcgk/introduce.vue'
+
+
+
 Vue.use(VueRouter)
 const routes = [
     {
@@ -20,6 +30,12 @@ const routes = [
       component: login/* ,hidden: true, // 自定义属性，在组件中可以通过 this.$route.hidden 获取值 */
     },
     {
+      path: '/welcome', /* 登录界面 */
+      name: 'welcome',
+      meta:{title: '数据显示'},
+      component: welcome/* ,hidden: true, // 自定义属性，在组件中可以通过 this.$route.hidden 获取值 */
+    },
+    {
       path: '/home',
       name: 'home',
       meta:{title: '设备管理'},
@@ -27,10 +43,21 @@ const routes = [
       children: [{
         path: '/jcxt',
         component: jcxt
-      }, {
-        path: '/welcome',
-        component: welcome
+      }, 
+      // {
+      //   path: '/welcome',
+      //   component: welcome
+      // },
+      {
+        path: '/bridge',
+        component: bridge
       },
+      {
+        path: '/introduce',
+        component: introduce
+      },
+      
+      
       {
         path: '/detection',
         component: detection
@@ -38,7 +65,28 @@ const routes = [
       {
         path: '/standard',
         component: standard
+      },
+      {
+        path: '/user',
+        component: user
+      },
+      {
+        path: '/warnvalue',
+        component: warnvalue
+      },
+      {
+        path: '/dataprocessing',
+        component: dataprocessing
+      },
+      {
+        path: '/report',
+        component: report
+      },
+      {
+        path: '/cphsWarning',
+        component: cphsWarning
       }
+      
       // children: [{
       //   path: '/jcxt',
       //   component: jcxt

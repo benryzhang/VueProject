@@ -138,10 +138,10 @@
                 <el-col :span="6">
                     <div class="grid-content bg-purple">
                         <el-form-item label="传感器图片" prop="picture" >
-                           
-                            <el-upload
+                           <el-button type="primary" @click.native="upStart">上传图片<i class="el-icon-upload el-icon--right"></i></el-button>
+                            <!-- <el-upload
                                 class="avatar-uploader"
-                                :action="UploadUrl()"
+                                action=""
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload"
@@ -149,7 +149,7 @@
                                 
                                 <img v-if="imageUrl" :src="imageUrl" class="avatar">
                                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                                </el-upload>
+                                </el-upload> -->
                             <!-- <el-upload
                             class="upload-demo"
                             drag
@@ -390,6 +390,38 @@ import detectionPanel from './detectionPanel'
         },
         UploadUrl(){
             console.log('upload')
+        },
+        upStart() {
+            //创建input
+            const upload = document.createElement("input");
+            //设置type为file
+            upload.type = "file";
+            //类型
+            upload.accept = "image/png, image/jpeg";
+            //添加onchange事件
+            upload.onchange = this.setFile;
+            //模拟点击
+            upload.click();
+        },
+        setFile(e) {
+            //获取文件
+            const file = e.path[0].files[0];
+            console.log(e.target.files[0])
+            console.log(file)
+            //将其放入formdata中方便上传
+            const formData = new FormData();
+            formData.append("imgFile", file);
+            console.log(formData)
+            const ImgUrl = window.URL.createObjectURL(file);
+            //构建Image对象方便获取其宽高
+            const img = new Image();
+            img.src = ImgUrl;
+            console.log(ImgUrl)
+            img.onload = () => {
+                //只有在图片完成加载的时候才能拿到图片的宽高
+                this.userDetail.upAva.imgSize = img.width;
+            };
+            this.userDetail.upAva.url = ImgUrl;
         },
         // async getDamageTypeByBlockType() {
         //     await this.$axios.get(this.api.getDamageTypeByBlockType,{params:{type:this.damageinfolist.blocktype,structure:this.GLOBAL.structure}}).then(response => {
