@@ -152,7 +152,7 @@ export default {
                 fontWeight : 'normal',
                 color:'#fff'
             },
-            top: "center"
+            top: "top"
 		},
 		// 图表提示信息
 		tooltip : {

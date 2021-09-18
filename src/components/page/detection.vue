@@ -260,13 +260,13 @@ export default {
     editPannel(index, row) {
         this.dialogFormVisible = true;
         this.addOperate = false;
-        this.dialogTitle = "编辑检测信息";
+        this.dialogTitle = "编辑设备信息";
         this.$nextTick(()=>{
           this.$refs.detectionPanel.dataInit(row);
         });
     },
     addPannel(){
-        this.dialogTitle = "添加检测信息";
+        this.dialogTitle = "添加设备信息";
         this.dialogFormVisible = true;
         this.addOperate = true;
     },

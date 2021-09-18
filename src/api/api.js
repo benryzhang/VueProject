@@ -37,6 +37,12 @@ export default {
     deleteAlarmInfoData:process.env.VUE_APP_BASE_API + "/deleteAlarmInfoData",    //删除预警信息
     getReportInfoByTime:process.env.VUE_APP_BASE_API + "/getReportInfoByTime",    //手工生成数据报告
 
+    getInitWarnInfo:process.env.VUE_APP_BASE_API + "/getInitWarnInfo",    //获取综合预警选择条件（预警时长、处置结果、传感器类型）
+    getyjpgdatas:process.env.VUE_APP_BASE_API + "/getyjpgdatas",    //获取综合预警预警信息
+    getyjpgdatasbystime:process.env.VUE_APP_BASE_API + "/getyjpgdatasbystime",    //获取综合预警预警信息 用时间查询
+    
+    
+
     
     getAQYJRTDataByCode:process.env.VUE_APP_BASE_API + "/getAQYJRTDataByCode",    //测试图标查询RT UAN数据
     getBasicSjfxInfo:process.env.VUE_APP_BASE_API + "/getBasicSjfxInfo",    //测试THM数据分析数据

@@ -14,54 +14,78 @@
         <el-form-item label="信息显示">
           <el-input v-model="queryMap.location" placeholder="请输入信息显示查询"></el-input>
         </el-form-item> -->
+        <div>
+          <el-form-item>
+          <el-radio-group v-model="radio">
+            <el-radio :label="1" @change="initRealTimeWarn()" >实时监测</el-radio>
+            <el-radio :label="2" @change="initHistoryWarn()">历史查看</el-radio>
+          </el-radio-group>
+          <el-form-item label="预警时间" v-if="flag" class="demonstration"> 
+          <!-- <span  v-if="flag">预警时间</span> -->
+          <el-date-picker
+            v-model="value1"
+            v-if="flag"
+            type="datetimerange"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            value-format="yyyy-MM-dd HH:mm:ss"
+            
+            >
+          </el-date-picker>
+           <el-button type="primary" > &nbsp;查询 </el-button>
+          </el-form-item>
+        </el-form-item>
         <el-form-item label="预警时长">
         <el-select clearable
-            @change="searchinfobytype"
-            @clear="searchinfobytype"
-            v-model="queryMap.sensortype"
+            @change="getWarn"
+            @clear="getWarn"
+            v-model="warn"
             placeholder="请选择检测时间">
           <el-option
-            v-for="item in damageinfolist"
-              :label="item.name"
-              :key="item.code"
-              :value="item.code"
+            v-for="item in warninfolist"
+              :label="item.text"
+              :key="item.id"
+              :value="item.id"
               >
           </el-option>
         </el-select>
         </el-form-item>
         <el-form-item label="处置结果">
         <el-select clearable
-            @change="searchinfobytype"
-            @clear="searchinfobytype"
-            v-model="queryMap.sensortype"
+            @change="getResult"
+            @clear="getResult"
+            v-model="result"
             placeholder="请选择处置结果">
           <el-option
-            v-for="item in damageinfolist"
-              :label="item.name"
-              :key="item.code"
-              :value="item.code"
+            v-for="item in resultinfolist"
+              :label="item.text"
+              :key="item.id"
+              :value="item.id"
               >
           </el-option>
         </el-select>
         </el-form-item>
         <el-form-item label="传感器类型">
         <el-select clearable
-            @change="searchinfobytype"
-            @clear="searchinfobytype"
-            v-model="queryMap.sensortype"
+            @change="getSensor"
+            @clear="getSensor"
+            v-model="sensor"
             placeholder="请选择传感器类型">
           <el-option
-            v-for="item in damageinfolist"
-              :label="item.name"
-              :key="item.code"
-              :value="item.code"
+            v-for="item in sensorinfolist"
+              :label="item.text"
+              :key="item.id"
+              :value="item.id"
               >
           </el-option>
         </el-select>
         </el-form-item>
+        
+        </div>
         <!-- <el-form-item>
           <el-button  icon="el-icon-search" @click="search" type="primary">查询</el-button>
         </el-form-item> -->
+      <div>
         <el-form-item>
           <el-button  icon="el-icon-refresh" @click="getDamageInfoData('refresh')" type="primary">刷新</el-button>
         </el-form-item>
@@ -86,12 +110,8 @@
         <el-form-item>
           <el-button  icon="el-icon-printer" @click="search" type="primary">打印</el-button>
         </el-form-item>
-        <el-form-item>
-          <el-radio-group v-model="radio">
-            <el-radio :label="3">实时监测</el-radio>
-            <el-radio :label="6">历史查看</el-radio>
-          </el-radio-group>
-        </el-form-item>
+        </div>
+        
         <!-- <el-form-item>
           <el-button @click="deleteFileOrDirectory(sels)" icon="el-icon-delete"  :disabled="this.sels.length === 0">批量</el-button>
         </el-form-item> -->
@@ -109,17 +129,31 @@
           :height="Height"
           max-height="872"
           >
+              
           <el-table-column :index="indexMethod" type="index" fixed label="序号" width="50" align="center"></el-table-column>
-          <el-table-column prop="testdate" label="检测时间" fixed sortable width="200" align="center"  ></el-table-column>
-          <el-table-column prop="blocktype" label="构件类型" width="" align="center"></el-table-column>
-          <el-table-column prop="componentid" label="构件ID" width="140" align="center"></el-table-column>
-          <el-table-column prop="damagelocation" label="病害部位描述" width="" align="center"></el-table-column>
-          <el-table-column prop="damagetype" label="病害类型" width="" align="center"></el-table-column> 
-          <!-- :formatter="damagetypeFormat"  :formatter="((row,column)=>{return scaleFormat(row, column, cellValue, index)})" -->
-          <el-table-column prop="damagedescription" label="病害描述" width="" align="center"></el-table-column>
-          <el-table-column prop="scale" label="病害标度" width="" align="center"></el-table-column>
-          <el-table-column prop="inspector" label="检测人" width="" align="center"></el-table-column>
-          <el-table-column prop="damagepicture" label="病害图片" width="" align="center"></el-table-column>
+          <el-table-column prop="errtype" label="预警级别" width="140" align="center"  ></el-table-column>
+          <el-table-column prop="errstarttime" label="预警开始时间" width="200" align="center"></el-table-column>
+          <el-table-column prop="errendtime" label="预警结束时间" width="200" align="center"></el-table-column>
+          <el-table-column prop="sensortypecode" label="传感器类型" width="140" align="center"></el-table-column>
+          <el-table-column prop="sensortypename" label="传感器类型" width="140" align="center"></el-table-column> 
+          <el-table-column prop="sensorcode" label="传感器" width="140" align="center"></el-table-column>
+          <el-table-column prop="channelcode" label="传感器通道" width="140" align="center"></el-table-column>
+          <el-table-column prop="inspector" label="传感器通道" width="140" align="center"></el-table-column>
+          <el-table-column prop="componentname" label="所在构件" width="140" align="center"></el-table-column>
+
+          <el-table-column prop="alarmcontent" label="预警内容" width="200" align="center"  ></el-table-column>
+          <el-table-column prop="errval" label="监测值" width="200" align="center"></el-table-column>
+          <el-table-column prop="alarmvalue" label="预警值" width="200" align="center"></el-table-column>
+          <el-table-column prop="maxerrval" label="最大监测值" width="200" align="center"></el-table-column>
+          <el-table-column prop="maxerrtime" label="最大监测值时间" width="200" align="center"></el-table-column> 
+          <el-table-column prop="level2flg" label="是否进行二级评定" width="200" align="center"></el-table-column>
+          <el-table-column prop="specialflg" label="是否进行专项评定" width="200" align="center"></el-table-column>
+          <el-table-column prop="handleopinion" label="处置意见" width="200" align="center"></el-table-column>
+          <el-table-column prop="handleflg" label="处置结果" width="200" align="center"></el-table-column>
+
+          <el-table-column prop="handleflgname" label="处置结果" width="" align="center"  ></el-table-column>
+          <el-table-column prop="handleuserid" label="处置者" width="" align="center"></el-table-column>
+          <el-table-column prop="handletime" label="处置时间" width="" align="center"></el-table-column>
           <el-table-column
       fixed="right"
       align="center"
@@ -182,11 +216,22 @@ import standardPanel from './standardPanel'
 export default {
   data() {
     return {
+      value1:this.getNowTime(),
+      //value1: '',
+      warnFlag:"R",
+      warn:'',
+      result:'',
+      sensor:'',
+      flag:false,
+      formData:[],
+      warninfolist: [],
+      resultinfolist: {},
+      sensorinfolist: {},
       sels: [], //选中的值显示
       total: 0, //总共多少条数据
       itemList: [],
       Height:0,
-      radio: 3,
+      radio: 1,
       //filterList: [],
       damagetypelist:[],
       scalelist:[],
@@ -194,9 +239,9 @@ export default {
       btnDisabled: false,
       addDialogVisible: false, //添加弹框是否显示
       structure:{structure:this.GLOBAL.structure},
-      damageinfolist: [],
+      
       //queryMap: { pageNum: 1, pageSize: 10, location: "" } 
-      queryMap:{para:'',pageNumber:1,pageSize:20,structure:this.GLOBAL.structure },//查询对象
+      queryMap:{warn:'',result:'',sensor:'',para:'',pageNumber:1,pageSize:50,structure:this.GLOBAL.structure },//查询对象
       components: {
         standardPanel,
       },
@@ -245,9 +290,10 @@ export default {
     };
   },
   mounted() {
-          this.getDamageInfoData();
+          this.getInitWarnInfo();
+          
           //this.getMapWarnType();
-          this.getDamageInfoList();
+          //this.getDamageInfoList();
           this.$nextTick(() => {
             this.Height = window.innerHeight - 240;
             //后面100一般是根据你上下导航栏的高度来减掉即可。
@@ -282,20 +328,90 @@ export default {
     //   });  
     //   },
     //加载传感器信息列表
-    async getDamageInfoData(re) {
-      //this.handleCurrentChange('1');
-      await this.$axios.get(this.api.getDamageInfoData,
-        {
-          params: this.queryMap
-         },
-      ).then(response => {
-        if( re === 'refresh'){
-            this.reload();
-        }
+    async getInitWarnInfo() {
+      var prm = {maincode:'DefaultWarnType',maincodename:'',structure:this.GLOBAL.structure}
+      await this.$axios.get(this.api.getInitWarnInfo,{params:prm}).then(response => {
+        //console.log(JSON.parse(response).root)
+        this.warninfolist = JSON.parse(response).warn;
+        this.resultinfolist = JSON.parse(response).result;
+        this.sensorinfolist = JSON.parse(response).sensor;
+        this.warn = this.warninfolist[0].id;
+        this.result = this.resultinfolist[1].id;
+        this.sensor = this.sensorinfolist[0].id;
+        this.getyjxxinfo();
+      }).catch(response=>{
+          console.log(response);
+      });
+    },
+    initHistoryWarn(){
+      this.warnFlag = "H";
+      this.flag = true;
+    },
+    initRealTimeWarn(){
+      this.warnFlag = "R";
+      this.flag = false;
+    },
+    async getyjxxinfo() {
+      var url=""
+      //console.log(this.warninfolist)
+      if(this.warnFlag=="R"){
+				await this.$axios.get(this.api.getyjpgdatas,{params:{warn:this.warn,result:this.result,sensor:this.sensor,pageNumber:this.queryMap.pageNumber,pageSize:this.queryMap.pageSize,structure:this.GLOBAL.structure}}).then(response => {
+		   
+         var dataObj = JSON.parse(response);
+         console.log(dataObj);
+			 	// if(dataObj.total!=0){
+			 	// 	$("#z_yjpg").datagrid('loadData',dataObj); 
+			 	// }else{
+			 	// 	var loadData={"total":0,"rows":[]};
+			 	// 	$("#z_yjpg").datagrid('loadData',loadData);  
+			 	// }			 				
+      }).catch(response=>{
+          console.log(response);
+      })
+			}else{
+        await this.$axios.get(this.api.getyjpgdatasbystime,{params:{warn:this.warninfolist.id,result:this.resultinfolist.id,sensor:this.sensorinfolist.id,pageNumber:this.queryMap.pageNumber,pageSize:this.queryMap.pageSize,structure:this.GLOBAL.structure}}).then(response => {
+		   
+			 	var dataObj = JSON.parse(response);
+			 	// if(dataObj.total!=0){
+			 	// 	$("#z_yjpg").datagrid('loadData',dataObj); 
+			 	// }else{
+			 	// 	var loadData={"total":0,"rows":[]};
+			 	// 	$("#z_yjpg").datagrid('loadData',loadData);  
+			 	// }			 				
+      }).catch(response=>{
+          console.log(response);
+      })
+			}
+       
         
-        this.total = JSON.parse(response).total;
+      
+      // var prm = {maincode:'DefaultWarnType',maincodename:'',structure:this.GLOBAL.structure}
+      // await this.$axios.get(this.api.getInitWarnInfo,{params:prm}).then(response => {
+      //   //console.log(JSON.parse(response).root)
+      //   this.warninfolist = JSON.parse(response).warn
+      //   this.resultinfolist = JSON.parse(response).result
+      //   this.sensorinfolist = JSON.parse(response).sensor
+      //   this.formData.warn = this.warninfolist[0].id
+      //   this.formData.result = this.resultinfolist[1].id
+      //   this.formData.sensor = this.sensorinfolist[0].id
+      //   console.log(this.warninfolist)
+      //   //console.log(this.damageinfolist)
+      // });
+    },
+     
+      // async initWarnInfo() {
+      // //this.handleCurrentChange('1');
+      // //alert('sd')
+      // //var info={maincode:'DefaultWarnType',maincodename:'',structure:this.GLOBAL.structure};
+      // await this.$axios.get(this.api.initWarnInfo,{params: {maincode:'DefaultWarnType',maincodename:'',structure:this.GLOBAL.structure}}).then(response => {
+      //   //if( re === 'refresh'){
+      //    //   this.reload();
+      //   //}
+      //   console.log(response)
+        
+        //this.total = JSON.parse(response).total;
         //this.itemList = ''
-        this.itemList = JSON.parse(response).rows;
+        //this.itemList = JSON.parse(response).rows;
 
         
         
@@ -311,9 +427,9 @@ export default {
         //    console.log(this.unique(filterlist));
         //    }
         //console.log(this.itemList[i].sensortypecode)()
-      });
+      //});
 
-    },
+    //},
     scaleFormat(row, column, data){
      // console.log(row.scale)
       // this.$axios.get(this.api.getScaleListByDamageType,{params:{type:row.scale,structure:this.structure}}).then(response => {
@@ -335,19 +451,41 @@ export default {
     /**
      * 加载所有传感器用于按传感器信息查询
      */
-    async getDamageInfoList() {
-      await this.$axios.get(this.api.getDamageInfoList,{params:this.structure}).then(response => {
-        //console.log(JSON.parse(response).root)
-        this.damageinfolist = JSON.parse(response).root
-        //console.log(this.damageinfolist)
-      });
-    },
+    // async getDamageInfoList() {
+    //   await this.$axios.get(this.api.getDamageInfoList,{params:this.structure}).then(response => {
+    //     //console.log(JSON.parse(response).root)
+    //     this.damageinfolist = JSON.parse(response).root
+    //     //console.log(this.damageinfolist)
+    //   });
+    // },
     /**
      * 搜索传感器信息by 类型
      */
     searchinfobytype() {
       this.queryMap.pageNumber = 1;
       this.getDamageInfoData();
+    },
+    getWarn(item){
+			  let warnobj = {};//定义对象集合
+        warnobj = this.warninfolist.find(project => {//projectlist 为Select遍历集合 project 为Select 遍历 对象
+            return project.id === item; //筛选出匹配数据 返回对象
+        });
+        //console.log(warnobj.text); //name Select中 对象 label
+        this.warn = warnobj.id;//id Select 中 对象 id
+    },
+    getResult(item){
+        let resultobj = {};//定义对象集合
+        resultobj = this.resultinfolist.find(project => {//projectlist 为Select遍历集合 project 为Select 遍历 对象
+            return project.id === item; //筛选出匹配数据 返回对象
+        });
+        this.result = resultobj.id;//id Select 中 对象 id
+    },
+    getSensor(item){
+        let sensorobj = {};//定义对象集合
+        sensorobj = this.sensorinfolist.find(project => {//projectlist 为Select遍历集合 project 为Select 遍历 对象
+            return project.id === item; //筛选出匹配数据 返回对象
+        });
+        this.sensor = sensorobj.id;//id Select 中 对象 id
     },
     //删除登入日志
     // async del(id) {
@@ -496,9 +634,26 @@ export default {
     handleProgress(event, file, fileList) {
       this.loading = true;  //  上传时执行loading事件
     },
+    getNowTime() {
+	       var now = new Date();
+	       var year = now.getFullYear(); //得到年份
+	       var month = now.getMonth(); //得到月份
+	       var date = now.getDate(); //得到日期
+	       var hour =" 00:00:00"; //默认时分秒 如果传给后台的格式为年月日时分秒，就需要加这个，如若不需要，此行可忽略
+	       month = month + 1;
+	       month = month.toString().padStart(2, "0");
+	       date = date.toString().padStart(2, "0");
+	       var defaultDate = `${year}-${month}-${date}${hour}`;
+         console.log(defaultDate)
+         //this.value1 = defaultDate
+	       return defaultDate;
+	       //this.$set(this.value1, defaultDate);
+	    },
+	
     indexMethod(index){
        return (this.queryMap.pageNumber-1)*this.queryMap.pageSize+index+1;
     },
+    
     created () {
     let that = this
     let heightStyle = that.$refs.tableCot.offsetHeight
@@ -509,4 +664,6 @@ export default {
 </script>
 <style scoped>
 .el-dialog {width:80%}
+.demonstration{padding-left: 20px}
+/* .el-range-editor{display: none;} */
 </style>
