@@ -1,5 +1,23 @@
 <template>
-  <div class="login-container">
+  <div class="login-container" id="particles-js">
+    <vue-particles
+        color="#dedede"
+        :particleOpacity="0.7"
+        :particlesNumber="100"
+        shapeType="circle"  
+        :particleSize="4"
+        linesColor="#dedede"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="100"
+        :moveSpeed="2"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="repulse"
+      >
+      </vue-particles>
     <el-form
       :model="ruleForm2"
       :rules="LoginFormRules"
@@ -40,7 +58,7 @@
        
       </el-form-item>
     </el-form>
-    <div class="copyright">@copy智性科技南通有限公司 2020</div>
+    <div class="copyright">@copy智性科技南通有限公司 2021</div>
   </div>
 
 </template>
@@ -51,8 +69,8 @@ export default {
     return {
       logining: false,
       ruleForm2: {
-        username: "admin",
-        password: "123",
+        username: "admin_yzcn",
+        password: "YZCN!@#2020",
       },
       LoginFormRules: {
         username: [
@@ -109,18 +127,20 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
 h3{text-align: center;}
 .login-container {
-  background: #000 url("../assets/img/bg0_2.jpg") no-repeat center top;
+  /* background: #000 url("../assets/img/bg0_2.jpg") no-repeat center top; */
+  background-image:linear-gradient(to top, #409EFF 0%, #2b1216 100%);
   overflow: hidden;
   background-position: 50% 50%;
   width: 100%;
   height: 100%;
 }
-.copyright {position: absolute;height:80px; line-height: 80px; background: rgb(236, 236, 236);color: #333; width: 100%;bottom: 0; text-align: center; font-size: 14px; opacity: 0.6;}
+.copyright {position: absolute;height:60px; line-height: 60px; background: rgb(236, 236, 236);color: #333; width: 100%;bottom: 0; text-align: center; font-size: 14px; opacity: 0.6;}
 .register{ cursor: pointer; float:right; padding-top:15px; color:#999;}
 .el-main {
   width: 100%;
@@ -132,8 +152,8 @@ h3{text-align: center;}
 
 .login-page {
     position: absolute;
-    left:50%;
-    top:50%;
+    left:calc((100% - 0px) / 2);
+    top:calc((100% - 0px) / 2);
   -webkit-border-radius: 5px;
   border-radius: 5px;
   transform: translate(-50%,-50%);
@@ -147,5 +167,6 @@ label.el-checkbox.rememberme {
   margin: 0px 0px 15px;
   text-align: left;
 }
+
 </style>
 

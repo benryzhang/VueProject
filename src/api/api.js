@@ -47,6 +47,22 @@ export default {
     getAQYJRTDataByCode:process.env.VUE_APP_BASE_API + "/getAQYJRTDataByCode",    //测试图标查询RT UAN数据
     getBasicSjfxInfo:process.env.VUE_APP_BASE_API + "/getBasicSjfxInfo",    //测试THM数据分析数据
     
+
+
+    //------------------------------------------------------MAP 地图所用接口以下
+    getStructInfo:process.env.VUE_APP_BASE_API + "/getStructInfo",    //获取结构体ID 使用状态等内容
+    getviewinfo:process.env.VUE_APP_BASE_API + "/getviewinfo",    //获取平台简介内容
+    geALLWarnNum:process.env.VUE_APP_BASE_API + "/geALLWarnNum",    //获取传感器按类型统计预警内容
+    geALLSensorNum:process.env.VUE_APP_BASE_API + "/geALLSensorNum",    //获取按类型传感器数量
+    getMapWarnInfo:process.env.VUE_APP_BASE_API + "/getMapWarnInfo",    //获取24小时预警信息
+    
+    
+    
+    
+    //------------------------------------------------------MAP 地图所用接口以上
+
+
+    
     
     
     

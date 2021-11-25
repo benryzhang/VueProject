@@ -12,6 +12,7 @@ import animated from 'animate.css'
 import echarts from 'echarts'
 import global from './assets/js/global.js'//引用全局变量文件
 import yjpdEchart from './assets/js/yjpdEchart.js'//引用yjpdEchart文件
+import VueParticles from 'vue-particles'
 
 
 import qs from 'qs'
@@ -43,19 +44,29 @@ Vue.component('warnvaluePanel-page', warnvaluePanel)
 import dataV from '@jiaminghi/data-view'
 Vue.use(dataV)
 
+import BaiduMap from 'vue-baidu-map'
 
-Vue.component('LeftChart1', LeftChart1)
-import LeftChart1 from './components/monitoringmodule/LeftChart1.vue'
-Vue.component('LeftChart2', LeftChart2)
-import LeftChart2 from './components/monitoringmodule/LeftChart2.vue'
-Vue.component('LeftChart3', LeftChart3)
-import LeftChart3 from './components/monitoringmodule/LeftChart3.vue'
-Vue.component('RightChart1', RightChart1)
-import RightChart1 from './components/monitoringmodule/RightChart1.vue'
-Vue.component('CenterCmp', CenterCmp)
-import CenterCmp from './components/monitoringmodule/CenterCmp.vue'
-Vue.component('BottomCharts', BottomCharts)
-import BottomCharts from './components/monitoringmodule/BottomCharts.vue'
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: '8LPl96uimMBx8O9MTjbTjVUEU6i4gDvj'
+})
+
+// Vue.component('LeftChart1', LeftChart1)
+// import LeftChart1 from './views/home/monitoringmodule/LeftChart1.vue'
+// Vue.component('LeftChart2', LeftChart2)
+// import LeftChart2 from './views/home/monitoringmodule/LeftChart2.vue'
+// Vue.component('LeftChart3', LeftChart3)
+// import LeftChart3 from './views/home/monitoringmodule/LeftChart3.vue'
+// Vue.component('RightChart1', RightChart1)
+// import RightChart1 from './views/home/monitoringmodule/RightChart1.vue'
+// Vue.component('RightChart2', RightChart2)
+// import RightChart2 from './views/home/monitoringmodule/RightChart2.vue'
+// Vue.component('RightChart3', RightChart3)
+// import RightChart3 from './views/home/monitoringmodule/RightChart3.vue'
+// Vue.component('CenterCmp', CenterCmp)
+// import CenterCmp from './views/home/monitoringmodule/CenterCmp.vue'
+// Vue.component('BottomCharts', BottomCharts)
+// import BottomCharts from './views/home/monitoringmodule/BottomCharts.vue'
 
 //import jcxtChannel from './components/page/jcxtChannel.vue'
 //Vue.component('jcxtChannel-page', jcxtChannel)
@@ -88,6 +99,7 @@ Vue.prototype.$querystring = querystring;
 Vue.prototype.$echarts = echarts
 Vue.use(VueResource)
 Vue.use(animated)
+Vue.use(VueParticles)
 //Vue.use(pdf)
 
 // Vue.use(ElementUI, {

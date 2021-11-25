@@ -1,102 +1,537 @@
-# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# ´´½¨µÄÎÄ¼þ:14.12.2020 14:56:42
+# 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
+# ´´½¨µÄÎÄ¼þ:09.11.2021 16:47:53
 
-newmtl wire-000255255
+newmtl A_Ë®ÄàÉ°½¬ÕÒÆ½
+	Kd 0.4710 0.4710 0.4710
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.5000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.4000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	map_Pr -bm 0.0000 ÌùÍ¼__28_Autodesk_Noise.tga
+	bump ÌùÍ¼__29_Autodesk_Bitmap.tga
+	map_bump ÌùÍ¼__29_Autodesk_Bitmap.tga
+
+newmtl »ìÄýÍÁ___ÏÖ³¡½½×¢
+	Kd 0.7500 0.7000 0.6800
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.5000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.4000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	map_Pr -bm 0.0000 ÌùÍ¼__42_Autodesk_Noise.tga
+	bump ÌùÍ¼__43_Autodesk_Bitmap.tga
+	map_bump ÌùÍ¼__43_Autodesk_Bitmap.tga
+
+newmtl Ä¬ÈÏÇ½
+	Kd 0.3150 0.3150 0.3150
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl µ××¶¸Ö°å
+	Kd 0.7450 0.7370 0.7290
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 2.5000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Metals.Metal Fabrications.Metal Stairs.Galvanized.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Metals.Metal Fabrications.Metal Stairs.Galvanized.png
+
+newmtl ¸Ö_ÖýÔì
+	Kd 0.7450 0.7370 0.7290
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 2.5000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ÇàÍ­É«
+	Kd 0.8706 0.2627 0.0824
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl Ìú_ÖýÔì
+	Kd 1.0000 1.0000 0.0000
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.3000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ²à·À»¤¿é
+	Kd 0.0000 0.0000 0.6275
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ÏÂ²¿µþ°åÕ¤¸ñ°å
+	Kd 1.0000 0.6078 0.2157
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ¹ö×ÓÖ§³Å
+	Kd 0.0000 0.0000 0.6275
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ÆöÌå³ÐÖØ²¿·Ö¶¥¸Ç
+	Kd 0.8784 0.8745 0.8588
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ÆöÌå³ÆÖØ¸Ö°å²ÄÖÊ
+	Kd 0.8784 0.8745 0.8588
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl É³
+	Kd 0.7941 0.7908 0.7126
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ¶ÑÐ¾¸Ö
+	Kd 0.9373 0.3490 0.3059
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ¶ÑÐ¾¹ÜµÀ¸Ö_1_
+	Kd 0.3176 0.3176 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ÉÏ²¿µþ°åÕ¤¸ñ°å
+	Kd 1.0000 0.6078 0.2157
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ¸ÖÁº²ÄÖÊ
+	Kd 0.0000 0.0000 0.6275
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl Ô²ÐÎ¶¥¸Ç
+	Kd 0.8627 0.8706 0.6941
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl Generic
+	Kd 0.3150 0.3150 0.3150
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ¹öÖé¸Ö²Ä
+	Kd 0.5020 1.0000 0.0000
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.2000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.0000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl ÏÂ³ÐÖØ¸ô°å
+	Kd 1.0000 0.6078 0.2157
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ÆöÌå³ÐÖØ¸ô°å
+	Kd 0.0000 0.0000 0.6275
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ¶ÑÐ¾¸ô°å
+	Kd 0.9255 0.2431 0.2431
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ÉÏ³ÐÖØ¸ô°å
+	Kd 1.0000 0.6078 0.2157
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl ÏÂ³ÐÖØ¸ô°å_¶¥²¿_
+	Kd 1.0000 0.6078 0.2157
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Steelplt.png
+
+newmtl »ìÄýÍÁ___ÏÖ³¡½½×¢»ìÄýÍÁ___C15
+	Kd 0.7500 0.7000 0.6800
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.5000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.4000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	map_Pr -bm 0.0000 ÌùÍ¼__53_Autodesk_Noise.tga
+	bump ÌùÍ¼__54_Autodesk_Bitmap.tga
+	map_bump ÌùÍ¼__54_Autodesk_Bitmap.tga
+
+newmtl Ë®ÏäÍâ±Ú¶ÆÐ¿¸Ö°å
+	Kd 0.7450 0.7370 0.7290
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 0.4000
+	Pm 1.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 2.5000
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Metals.Metal Fabrications.Metal Stairs.Galvanized.png
+	map_bump C:\Program Files (x86)\Common Files\Autodesk Shared\Materials\Textures\1\Mats\Metals.Metal Fabrications.Metal Stairs.Galvanized.png
+
+newmtl ¹¤ÒµË®
+	Kd 0.0400 0.2900 0.6700
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.8000
+	d 0.2000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.3300
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+	bump -bm 0.1500 ÌùÍ¼__64_Autodesk_Noise.tga
+	map_bump -bm 0.1500 ÌùÍ¼__64_Autodesk_Noise.tga
+
+newmtl »ì11
+	Kd 0.3150 0.3150 0.3150
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl äÖÈ¾²ÄÖÊ_192_192_192
+	Kd 0.3150 0.3150 0.3150
+	Ks 1.0000 1.0000 1.0000
+	Tr 0.0000
+	d 1.0000
+	Tf 1.0000 1.0000 1.0000
+	Pr 1.0000
+	Pm 0.0000
+	Pc 0.0000
+	Pcr 0.0000
+	Ni 1.5200
+	Ke 0.0000 0.0000 0.0000
+	illum 2
+
+newmtl wire_006135113
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.000 1.000 1.000
-	Kd 0.000 1.000 1.000
-	Ks 0.350 0.350 0.350
+	Ka 0.0235 0.5294 0.4431
+	Kd 0.0235 0.5294 0.4431
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-169073000
+newmtl wire_138008110
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.663 0.286 0.000
-	Kd 0.663 0.286 0.000
-	Ks 0.350 0.350 0.350
+	Ka 0.5412 0.0314 0.4314
+	Kd 0.5412 0.0314 0.4314
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-197167000
+newmtl wire_177148027
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.773 0.655 0.000
-	Kd 0.773 0.655 0.000
-	Ks 0.350 0.350 0.350
+	Ka 0.6941 0.5804 0.1059
+	Kd 0.6941 0.5804 0.1059
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-006135006
+newmtl wire_008061138
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.024 0.529 0.024
-	Kd 0.024 0.529 0.024
-	Ks 0.350 0.350 0.350
+	Ka 0.0314 0.2392 0.5412
+	Kd 0.0314 0.2392 0.5412
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-108008136
+newmtl wire_242008008
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.424 0.031 0.533
-	Kd 0.424 0.031 0.533
-	Ks 0.350 0.350 0.350
+	Ka 0.9490 0.0314 0.0314
+	Kd 0.9490 0.0314 0.0314
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-135006006
+newmtl wire_028058036
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.529 0.024 0.024
-	Kd 0.529 0.024 0.024
-	Ks 0.350 0.350 0.350
+	Ka 0.1098 0.2275 0.1412
+	Kd 0.1098 0.2275 0.1412
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-008008136
+newmtl wire_102041000
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.031 0.031 0.533
-	Kd 0.031 0.031 0.533
-	Ks 0.350 0.350 0.350
+	Ka 0.4000 0.1608 0.0000
+	Kd 0.4000 0.1608 0.0000
+	Ks 0.3500 0.3500 0.3500
 
-newmtl wire-176026026
+newmtl wire_025244252
 	Ns 32
 	d 1
 	Tr 0
 	Tf 1 1 1
 	illum 2
-	Ka 0.690 0.102 0.102
-	Kd 0.690 0.102 0.102
-	Ks 0.350 0.350 0.350
-
-newmtl wire-141007058
-	Ns 32
-	d 1
-	Tr 0
-	Tf 1 1 1
-	illum 2
-	Ka 0.553 0.027 0.227
-	Kd 0.553 0.027 0.227
-	Ks 0.350 0.350 0.350
-
-newmtl wire-088144225
-	Ns 32
-	d 1
-	Tr 0
-	Tf 1 1 1
-	illum 2
-	Ka 0.345 0.565 0.882
-	Kd 0.345 0.565 0.882
-	Ks 0.350 0.350 0.350
+	Ka 0.0980 0.9569 0.9882
+	Kd 0.0980 0.9569 0.9882
+	Ks 0.3500 0.3500 0.3500

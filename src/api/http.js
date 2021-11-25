@@ -4,7 +4,8 @@ import { showLoading, hideLoading } from '../assets/js/loading';
 
 //axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
 
-let localhosts = 'http://39.100.239.145:8082';   //请求的后台域名
+//let localhosts = 'http://39.100.239.145:8082';   //请求的后台域名
+let localhosts = 'http://localhost:8086/bshm_edj';   //请求的后台域名
 axios.interceptors.request.use(config => {//请求之前(可以设置token)
     showLoading();
     return config

@@ -38,13 +38,20 @@ module.exports = {
                 ws: true,
                 changeOrigin: true,
             },
-            // '/bshm_sjhh': {
-            //     target: 'http://localhost:8086',
-            //     changeOrigin: true,
-            //     pathRewrite: {
-            //          '^/bshm_sjhh': '/bshm_sjhh'
-            //        }
-            // },
+            '/bshm_edj': {
+                target: 'http://localhost:8086',
+                changeOrigin: true,
+                pathRewrite: {
+                     '^/bshm_edj': '/bshm_edj'
+                   }
+            },
+            '/bshm_404': {
+                target: 'http://localhost:8086',
+                changeOrigin: true,
+                pathRewrite: {
+                     '^/bshm_404': '/bshm_404'
+                   }
+            },
             //  '/api': {
             //      target: 'http://api.qingyunke.com',
             //      ws: true,
@@ -55,5 +62,5 @@ module.exports = {
         // headers: {
         //     'Access-Control-Allow-Origin': '*',
         // }
-    }
+    },
   }

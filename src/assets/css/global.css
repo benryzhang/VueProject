@@ -66,4 +66,7 @@ height: 100%;}
   .components-container {
     margin: 20px 30px;
   }
-  
+  @font-face {
+    font-family: LigatureSymbols;
+    src: url('../font/LigatureSymbols-2.11.woff.ttf');
+  }

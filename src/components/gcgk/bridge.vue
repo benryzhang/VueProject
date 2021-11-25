@@ -82,8 +82,8 @@ export default {
       // this.scene.add(this.light);
       //this.scene.add(axisHelper);
       //初始化相机
-      this.camera = new THREE.PerspectiveCamera(50,window.innerWidth / (window.innerHeight-60),1,2000000);
-      this.camera.position.set(0, 0, 420);
+      this.camera = new THREE.PerspectiveCamera(40,window.innerWidth / (window.innerHeight),1,200000000);
+      this.camera.position.set(-360 ,0, 240);
       //const pointLight = new THREE.PointLight(0xffffff, 0.8);//点光源
       //this.camera.add(pointLight);
       this.camera.lookAt(this.scene.position);
@@ -112,9 +112,9 @@ export default {
     },
     //窗口监听函数
     onWindowResize() {
-      this.camera.aspect = window.innerWidth /(window.innerHeight-60);
+      this.camera.aspect = window.innerWidth /(window.innerHeight);
       this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, (window.innerHeight-60));
+      this.renderer.setSize(window.innerWidth, (window.innerHeight));
     },
     animate() {
       this.controls.update();

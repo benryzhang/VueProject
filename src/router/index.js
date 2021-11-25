@@ -4,6 +4,7 @@ import login from '../components/longin.vue'
 import NotPermission from '../components/401.vue'
 import jcxt from '../components/page/jcxt.vue'
 import home from '../components/common/home.vue'
+
 import welcome from '../components/welcome.vue'
 import detection from '../components/page/detection.vue'
 import standard from '../components/page/standard.vue'
@@ -13,7 +14,10 @@ import dataprocessing from '../components/page/dataprocessing.vue'
 import report from '../components/page/report.vue'
 import cphsWarning from '../components/page/cphsWarning.vue'
 import bridge from '../components/gcgk/bridge.vue'
+import model from '../components/gcgk/model.vue'
 import introduce from '../components/gcgk/introduce.vue'
+import dataview from '../views/home/About.vue'
+//import map from '../components/common/map.vue'
 
 
 
@@ -30,7 +34,13 @@ const routes = [
       component: login/* ,hidden: true, // 自定义属性，在组件中可以通过 this.$route.hidden 获取值 */
     },
     {
-      path: '/welcome', /* 登录界面 */
+      path: '/dataview', /* 系统首页dataview */
+      name: 'dataview',
+      meta:{title: '大数据显示'},
+      component: dataview
+    },
+    {
+      path: '/welcome', /* 欢迎界面 */
       name: 'welcome',
       meta:{title: '数据显示'},
       component: welcome/* ,hidden: true, // 自定义属性，在组件中可以通过 this.$route.hidden 获取值 */
@@ -51,6 +61,10 @@ const routes = [
       {
         path: '/bridge',
         component: bridge
+      },
+      {
+        path: '/model',
+        component: model
       },
       {
         path: '/introduce',
@@ -117,7 +131,7 @@ router.beforeEach((to, from, next) => {
     if(!token){
       return next();
     }else{
-      return next({path: '/home'})
+      return next({path: '/dataview'})
     }
   }
 
