@@ -27,7 +27,7 @@ export default {
         let myChart = this.$echarts.init(document.getElementById('topCharts'))
         // 绘制图表
         myChart.setOption({
-          title: { text: '在线离线结构',
+          title: { text: '在线离线结构统计',
           left: 'center',//主副标题的水平位置
           top: 'top',//主副标题的垂直位置
           padding: 5,//标题内边距,
@@ -133,7 +133,7 @@ export default {
   height: 30%;
   display: flex;
   flex-direction: column;
-  background: #10152f
+  background-color: rgba(16,21,41,0.4);
  }
 
 #topCharts {height:350px;width: 100%;}

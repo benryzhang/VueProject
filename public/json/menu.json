@@ -4,7 +4,7 @@
         "children":[{"id":253,"parentId":1,"menuName":"系统首页","url":"/welcome","icon":"el-icon-arrow-right","orderNum":1,"open":0,"disabled":false,"perms":"welcome:view","type":0,"children":[]},
                     {"id":321,"parentId":1,"menuName":"系统简介","url":"/introduce","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"attachments:delete","type":0,"children":[]},
                     {"id":226,"parentId":1,"menuName":"工程模型","url":"/bridge","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"users","type":0,"children":[]},
-                    {"id":226,"parentId":1,"menuName":"工程模型2","url":"/model","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"users","type":0,"children":[]}
+                    {"id":227,"parentId":1,"menuName":"工程模型2","url":"/model","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"users","type":0,"children":[]}
     ]},
     {"id":2,"parentId":0,"menuName":"监测设备","url":null,"icon":"el-icon-box","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
         "children":[{"id":365,"parentId":312,"menuName":"传感器信息","url":"/jcxt","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
@@ -20,7 +20,7 @@
                     {"id":267,"parentId":229,"menuName":"共性材料","url":"/products","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}
     ]},
     {"id":4,"parentId":0,"menuName":"数据分析","url":null,"icon":"el-icon-s-data","orderNum":2,"open":1,"disabled":false,"perms":null,"type":0,
-        "children":[{"id":365,"parentId":312,"menuName":"荷载与环境","url":"/OutStocks/publishStocks","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
+        "children":[{"id":365,"parentId":312,"menuName":"荷载与环境","url":"/sjfx","icon":"el-icon-arrow-right","orderNum":1,"open":1,"disabled":false,"perms":"","type":0,"children":[]},
                     {"id":364,"parentId":312,"menuName":"结构整体响应","url":"/inStocks/addStocks","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]},
                     {"id":229,"parentId":312,"menuName":"结构局部响应","url":"","icon":"el-icon-arrow-right","orderNum":3,"open":0,"disabled":false,"perms":"el-icon-arrow-right","type":0,"children":[]},
                     {"id":267,"parentId":229,"menuName":"特殊事件","url":"/products","icon":"el-icon-arrow-right","orderNum":2,"open":0,"disabled":false,"perms":"","type":0,"children":[]}

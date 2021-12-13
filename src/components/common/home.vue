@@ -138,7 +138,7 @@ export default {
      * 去系统首页
      */
     toWelcome(){
-      this.$router.push("/home");
+      this.$router.push("/dataview");
     },
     /**
       加载菜单数据
@@ -196,7 +196,7 @@ export default {
 </script>
 
 <style>
-.el-menu{ background-color:#303133; border: none;}
+.el-menu{ background: color #303133 !important; border: none;}
 .el-menu-item-group__title,.el-menu-item,.el-submenu__title{ color:#fff}
 .el-submenu__title {padding-left: 10px!important;}
 .el-menu-item, .el-submenu__title,.el-submenu .el-menu-item,.el-menu--collapse { height: 42px; line-height: 42px;}

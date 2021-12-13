@@ -27,6 +27,8 @@ const Plugins = [ hasPermission ]
 
 import jcxtAddorEdit from './components/page/jcxtAddorEdit.vue'
 Vue.component('jcxtAddorEdit-page', jcxtAddorEdit)
+import jgglAddorEdit from './views/home/monitoringmodule/jgglAddorEdit.vue'
+Vue.component('jgglAddorEdit-page', jgglAddorEdit)
 import jcxtChannel from './components/page/jcxtChannel.vue'
 Vue.component('jcxtChannel-page', jcxtChannel)
 import jcxtChannelcont from './components/page/jcxtChannelcont.vue'

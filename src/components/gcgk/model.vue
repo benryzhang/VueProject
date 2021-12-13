@@ -82,7 +82,7 @@ export default {
       // this.scene.add(this.light);
       //this.scene.add(axisHelper);
       //初始化相机
-      this.camera = new THREE.PerspectiveCamera(120,window.innerWidth / (window.innerHeight),1,200000000);
+      this.camera = new THREE.PerspectiveCamera(80,window.innerWidth / (window.innerHeight),1,200000000);
       this.camera.position.set(0 ,0, 240);
       //const pointLight = new THREE.PointLight(0xffffff, 0.8);//点光源
       //this.camera.add(pointLight);

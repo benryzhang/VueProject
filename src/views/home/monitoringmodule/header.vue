@@ -1,7 +1,7 @@
 <template>
     <div class="cc-header">
       <!-- <dv-decoration-1 style="width:100%;height:50px;" /> -->
-        <div class="cc-title">承重水箱外壁监控数据分析平台</div>
+        <div class="cc-title">动力灾害监控数据分析平台</div>
 <!--         
         <button class="btn button button--aylen button--border-medium button--inverted button--text-upper button--size-m" data-text="进入综合管理平台" @click="addRoutes"><span>进入综合管理平台</span></button> -->
 

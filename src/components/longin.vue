@@ -27,7 +27,7 @@
       label-width="0px"
       class="demo-ruleForm login-page"
     >
-      <h3 class="title">结构健康全寿命监测系统</h3>
+      <h3 class="title">动力灾害监控数据分析平台</h3>
       <el-form-item prop="username">
         <el-input
           type="text"
@@ -53,7 +53,7 @@
           :loading="logining"
           >登录</el-button
         >
-        <i class="el-icon-d-arrow-right register">立即注册</i>
+        <!-- <i class="el-icon-d-arrow-right register">立即注册</i> -->
         
        
       </el-form-item>
@@ -69,8 +69,8 @@ export default {
     return {
       logining: false,
       ruleForm2: {
-        username: "admin_yzcn",
-        password: "YZCN!@#2020",
+        username: "admin",
+        password: "123",
       },
       LoginFormRules: {
         username: [
@@ -113,7 +113,7 @@ export default {
                   }
                   else {
                     localStorage.setItem("JWT_TOKEN", resData);
-                    this.$router.push('/home');
+                    this.$router.push('/dataview');
                   }
                 }, response => {
                     console.log("error");

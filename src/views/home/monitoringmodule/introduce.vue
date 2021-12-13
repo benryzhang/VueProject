@@ -3,22 +3,22 @@
             <div class="content">
                 <section >
     
-                    <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;" id="banner"></p>
+                    <!-- <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;" id="banner"></p> -->
                     <!-- <p v-html="options">{{ `${item.section} ${item.content}` }}</p>
                     <span ></span>
                     <img :src="srcurl" /> -->
-                    <!-- <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;">（1）工程应用呈现软件接收二代机自带信号处理软件的数据，根据工程需求（目前已矿山监测为工程背景）进行后处理、数据库和可视化展示等。</p>
+                    <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;">（1）工程应用呈现软件接收二代机自带信号处理软件的数据，根据工程需求（目前已矿山监测为工程背景）进行后处理、数据库和可视化展示等。</p>
                     <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;">（2）具体形式参考下图：具体内容再细聊。</p>
 
-                    <p style="text-align:center">
-                        
+                    <p style="text-align:center;widthL:100%">
+                        <img :src="imgUrl1" />
                     </p>
                     
                     <p style="text-indent:2em;text-align: left;padding:0px 10px 0px 20px;">软件部分由主界面、实时数据、历史数据、数据分析、报警管理等功能模块构成。</p>
                     
                     <p style="text-align:center">
-                        <img src="images/edj2.png" />
-                    </p> -->
+                        <img :src="imgUrl2" />
+                    </p>
                     
                 </section>
             </div>
@@ -33,7 +33,9 @@ export default {
         return{
             parainfo: '',
             contenttext: [],
-            srcurl:''
+            srcurl:'',
+            imgUrl1:require("../../../assets/img/edj1.png"),
+            imgUrl2:require("../../../assets/img/edj2.png")
         }
     },
     methods:{
@@ -65,7 +67,7 @@ export default {
     },
 
     mounted(){
-        this.getviewinfo()
+        //this.getviewinfo()
         
     },
     watch:{
@@ -92,7 +94,7 @@ export default {
             height: 600px;
             background: #ffffff;
             position: absolute;
-            top: 50%;
+            top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 8px;
@@ -113,6 +115,8 @@ export default {
                 padding: 0 20px;
                 box-sizing: border-box;
             }
+            .content p{
+                line-height: 42px;            }
             .inp{
                 margin: 10px 0 0 20px;
                 width: 200px;
@@ -192,5 +196,6 @@ export default {
 .el-dialog__title{text-align: center;
     width: 100%;
     display: block;}
-    
+.content p{line-height: 42px;}
+.content img{width:100%}
 </style>

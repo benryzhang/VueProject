@@ -14,10 +14,12 @@ import dataprocessing from '../components/page/dataprocessing.vue'
 import report from '../components/page/report.vue'
 import cphsWarning from '../components/page/cphsWarning.vue'
 import bridge from '../components/gcgk/bridge.vue'
+import index from '../components/gcgk/bridge.vue'
 import model from '../components/gcgk/model.vue'
 import introduce from '../components/gcgk/introduce.vue'
 import dataview from '../views/home/About.vue'
 //import map from '../components/common/map.vue'
+import sjfx from '../components/sjfx/sjfx.vue'
 
 
 
@@ -63,12 +65,20 @@ const routes = [
         component: bridge
       },
       {
+        path: '/index',
+        component: index
+      },
+      {
         path: '/model',
         component: model
       },
       {
         path: '/introduce',
         component: introduce
+      },
+      {
+        path: '/sjfx',
+        component: sjfx
       },
       
       

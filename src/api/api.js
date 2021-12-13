@@ -55,11 +55,23 @@ export default {
     geALLWarnNum:process.env.VUE_APP_BASE_API + "/geALLWarnNum",    //获取传感器按类型统计预警内容
     geALLSensorNum:process.env.VUE_APP_BASE_API + "/geALLSensorNum",    //获取按类型传感器数量
     getMapWarnInfo:process.env.VUE_APP_BASE_API + "/getMapWarnInfo",    //获取24小时预警信息
+    getAllProjectInfo:process.env.VUE_APP_BASE_API + "/getAllProjectInfo",    //获取项目结构
     
     
     
     
     //------------------------------------------------------MAP 地图所用接口以上
+    //------------------------------------------------------数据分析页面所用接口以下
+    
+    getMonitParaType:process.env.VUE_APP_BASE_API + "/getMonitParaType",  //获取传感器监测类别 {code":"1","name":"环境与荷载"},{"code":"2","name":"结构整体性能"},{"code":"3","name":"结构局部性能"}
+    getSensorByMonitType:process.env.VUE_APP_BASE_API + "/getSensorByMonitType",  //获取传感器监测内容
+    getSjfxSensorInfo:process.env.VUE_APP_BASE_API + "/getSjfxSensorInfo",  //获取传感器编号
+    getSysInfoCodeByMainCode:process.env.VUE_APP_BASE_API + "/getSysInfoCodeByMainCode",  //获取默认传感器编号
+    getTimeTypeInfo:process.env.VUE_APP_BASE_API + "/getTimeTypeInfo",  //获取默认时间
+    
+    
+    
+    //------------------------------------------------------数据分析页面所用接口以上
 
 
     
